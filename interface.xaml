@@ -1,0 +1,97 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Gestion des Switches" 
+        Height="600" 
+        Width="800"
+        MinHeight="600"
+        MinWidth="800"
+        Background="#2D2D30"
+        >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+    <!-- Zone de recherche avec bouton pour effacer -->
+    <Grid Grid.Row="0" Grid.Column="0" Margin="5">
+    <!-- Champ de recherche -->
+        <TextBox x:Name="SearchBox" Grid.Row="0" Margin="5,5,5,0" Height="30" VerticalAlignment="Top" 
+                FontSize="14" Background="#1E1E1E" Foreground="Gray" Text="Rechercher un switch..."/>
+    
+     <!-- Bouton croix pour effacer le texte -->
+        <Button x:Name="ClearSearchButton" Content="X" Width="20" Height="20"
+                VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="White"
+                Margin="0,0,5,0" Background="Transparent" BorderThickness="0"
+                ToolTip="Effacer la recherche" Visibility="Collapsed"/>
+    </Grid>
+
+        <!-- Liste des switches -->
+        <ListBox Name="SwitchList" Grid.Row="1" Margin="10,10,10,0" Height="200" VerticalAlignment="Top" 
+                 Background="#1E1E1E" Foreground="White" FontSize="14"/>
+        
+        <!-- Boutons Connexion & Déconnexion -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10,10,10,0" VerticalAlignment="Top">
+            <Button Name="ConnectButton" Content="Connecter" Width="100" Margin="0,0,10,0"
+                    Background="#007ACC" Foreground="White" FontSize="14"/>
+            <Button Name="DisconnectButton" Content="Deconnecter" Width="100" Margin="0,0,10,0"  
+                    Background="#FF6347" Foreground="White" FontSize="14"/>
+        </StackPanel>
+
+        <!-- Zone de commandes avec gestion more -->
+<StackPanel Orientation="Horizontal" Grid.Row="3" Margin="80,10,10,5" VerticalAlignment="Top">
+    
+    <!-- ComboBox de sélection de commande -->
+    <ComboBox Name="CommandBox" Height="30" Width="300"
+              Background="#000000" Foreground="black" FontSize="14">
+        <ComboBoxItem>display interface brief</ComboBoxItem>
+        <ComboBoxItem>display vlan</ComboBoxItem>
+        <ComboBoxItem>display device</ComboBoxItem>
+        <ComboBoxItem>display current-configuration</ComboBoxItem>
+        <ComboBoxItem>display logbuffer reverse</ComboBoxItem>
+        <ComboBoxItem>display mac-address</ComboBoxItem>
+        <ComboBoxItem>display mac-address | i GE1/0/23</ComboBoxItem>
+        <ComboBoxItem>int ge 1/0/23</ComboBoxItem>
+        <ComboBoxItem>undo poe enable</ComboBoxItem>
+        <ComboBoxItem>poe enable</ComboBoxItem>
+        <ComboBoxItem>quit</ComboBoxItem>
+        <ComboBoxItem>display arp vlan 207</ComboBoxItem>
+        <ComboBoxItem>display arp</ComboBoxItem>
+        <ComboBoxItem>display stp brief</ComboBoxItem>
+        <ComboBoxItem>display users</ComboBoxItem>
+        <ComboBoxItem>display clock</ComboBoxItem>
+        <ComboBoxItem>display cpu-usage</ComboBoxItem>
+        <ComboBoxItem>display memory</ComboBoxItem>
+        <ComboBoxItem>save force</ComboBoxItem>
+    </ComboBox>
+
+    <!-- CheckBox pour activer/désactiver la gestion du more -->
+    <CheckBox Name="MoreHandlingCheckBox" Content="afficher plus"
+              Margin="10,5,0,0" VerticalAlignment="Center" IsChecked="True"
+              Foreground="White" FontSize="12"/>
+</StackPanel>
+        
+        
+        
+        
+        
+        <!-- Bouton d'exécution juste en dessous de la ComboBox -->
+        <Button Name="SendCommandButton" Grid.Row="4" Margin="10,0,0,0" Height="30" Width="150"
+                Background="#007ACC" Foreground="White" FontSize="14"
+                Content="Executer Commande" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        
+        <Button Name="ClearOutputButton" Grid.Row="4" Margin="170,0,0,0" Height="30" Width="100"
+        Background="#FF6347" Foreground="White" FontSize="14"
+        Content="Effacer" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        
+        <!-- Zone de résultat -->
+        <TextBox Name="ResultTextBox" Grid.Row="5" Margin="10,10,10,10" VerticalAlignment="Stretch"
+                 Background="#1E1E1E" Foreground="White" FontSize="14"
+                 TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
+    </Grid>
+</Window>
