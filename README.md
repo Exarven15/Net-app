@@ -1,8 +1,3 @@
-Parfait ! Voici votre `README.md` finalisé avec le nom du dépôt **Net-app**, prêt à être copié/collé dans votre GitHub :
-
----
-
-````markdown
 # Net-app — Interface graphique PowerShell pour la gestion de switchs via SSH
 
 ## 📖 Présentation
